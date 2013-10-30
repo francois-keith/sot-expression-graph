@@ -30,6 +30,10 @@
 #include <sot/core/exception-task.hh>
 #include <sot/core/matrix-homogeneous.hh>
 
+
+#include <kdl/expressiontree.hpp>
+
+
 /* --------------------------------------------------------------------- */
 /* --- API ------------------------------------------------------------- */
 /* --------------------------------------------------------------------- */
@@ -47,10 +51,10 @@
 /* --------------------------------------------------------------------- */
 /* --- CLASS ----------------------------------------------------------- */
 /* --------------------------------------------------------------------- */
-
+using namespace KDL;
 namespace dynamicgraph { namespace sot {
 namespace dg = dynamicgraph;
-using namespace KDL;
+
 /*!
   \class FeatureExpressionGraph
   \brief Class that defines example of expression graps
@@ -67,7 +71,7 @@ class SOTFeatureExpressionGraph_EXPORT FeatureExpressionGraph
   DECLARE_NO_REFERENCE;
 
   /*variables for expression graphs */
-  Expression<KDL::Vector>::Ptr w_T_ee;
+  Expression<KDL::Frame>::Ptr w_T_ee;
   Expression<KDL::Frame>::Ptr w_T_obj;
   Expression<double>::Ptr Soutput;
   Expression<double>::Ptr Sreference;

@@ -31,7 +31,8 @@ SETUP_PROJECT()
 ADD_REQUIRED_DEPENDENCY("dynamic-graph")
 ADD_REQUIRED_DEPENDENCY("dynamic-graph-python")
 ADD_REQUIRED_DEPENDENCY("sot-core >= 2.7")
-
+find_package(Eigen REQUIRED)
+include_directories(${Eigen_INCLUDE_DIRS})
 ADD_ROSPACK_DEPENDENCY("expressiongraph")
 
 # Search for dependencies.

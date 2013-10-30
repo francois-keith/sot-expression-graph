@@ -26,7 +26,7 @@
 //#define VP_DEBUG
 //#define VP_DEBUG_MODE 45
 #include <sot/core/debug.hh>
-#include <sot/core/feature-expressionGraph.hh>
+#include "feature-expressionGraph.h"
 #include <sot/core/exception-feature.hh>
 
 #include <sot/core/matrix-homogeneous.hh>
@@ -114,6 +114,7 @@ KDL::Rotation mlHom2KDLRot (const MatrixHomogeneous &  M)
 	    	Rkdl( i,j ) = M.elementAt( i,j );
 	//M.extract(R);
 	//R(i,j);
+	return Rkdl;
 
 }
 ml::Matrix& FeatureExpressionGraph::
@@ -148,7 +149,7 @@ computeJacobian( ml::Matrix& J,int time )
 
 
   //compute the interaction matrix
-  ml::Matrix Jtask(1,6);
+
   for (int i=0;i<6;++i)
 	  Jtask(0,i)=Soutput->derivative(i);
 
@@ -177,7 +178,7 @@ FeatureExpressionGraph::computeError( ml::Vector& Mvect3,int time )
   sotDEBUG(15) << "w_T_obj = " << w_T_obj << std::endl;
   sotDEBUG(15) << "vd = " << vectdes << std::endl;
 
-  const ml::Vector & error;
+  ml::Vector  error;
   error.resize(1);
 
   //copy positions
