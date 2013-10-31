@@ -78,7 +78,7 @@ FeatureExpressionGraph( const string& ExpressionGraph )
   w_T_obj=cached<Frame> (frame(w_R_obj,  w_p_obj));
   //in and out
   Sreference= input(12);
-  Soutput=Sreference-norm(w_p_ee-w_p_obj);
+  Soutput=cached<double>(Sreference-norm(w_p_ee-w_p_obj));
   //declare dependecies
   //copy positions
 
